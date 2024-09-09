@@ -3,7 +3,10 @@ public class Pessoa {
     private String cpf;
     private String nome;
 
-    public Pessoa(String cpf, String nome) {
+    public Pessoa(String cpf, String nome) throws CpfInvalidException  {
+        if (cpf.length() != 14){
+            throw new CpfInvalidException("Cpf nao está completo");
+        }
         this.cpf = cpf;
         this.nome = nome;
     }
